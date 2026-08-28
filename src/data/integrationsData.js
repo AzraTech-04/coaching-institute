@@ -1,0 +1,51 @@
+export const integrations = [
+  {
+    id: 1,
+    name: "WhatsApp",
+    description: "Send WhatsApp messages to students, parents, and faculty.",
+    category: "Messaging",
+    status: "Connected",
+    lastSynced: "2026-08-21",
+  },
+  {
+    id: 2,
+    name: "SMS",
+    description: "Send SMS alerts and reminders to students and parents.",
+    category: "Messaging",
+    status: "Not Connected",
+    lastSynced: null,
+  },
+  {
+    id: 3,
+    name: "Email",
+    description: "Send email notifications, reports, and announcements.",
+    category: "Messaging",
+    status: "Connected",
+    lastSynced: "2026-08-20",
+  },
+  {
+    id: 4,
+    name: "Payment Gateway",
+    description: "Accept online fee payments from students and parents.",
+    category: "Payments",
+    status: "Not Connected",
+    lastSynced: null,
+  },
+  {
+    id: 5,
+    name: "Google Calendar",
+    description:
+      "Sync batch schedules and counselling sessions to Google Calendar.",
+    category: "Productivity",
+    status: "Configuration Required",
+    lastSynced: null,
+  },
+  {
+    id: 6,
+    name: "Google Drive",
+    description: "Store and share study materials via Google Drive.",
+    category: "Productivity",
+    status: "Not Connected",
+    lastSynced: null,
+  },
+];

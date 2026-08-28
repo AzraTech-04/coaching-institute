@@ -1,0 +1,58 @@
+export const faculty = [
+  {
+    id: 1,
+    name: 'Dr. Ramesh Iyer',
+    subject: 'Physics',
+    experience: '12 years',
+    contact: '+91 98111 22334',
+    status: 'Active',
+    documents: [
+      { name: 'Qualification Certificate', submitted: true },
+      { name: 'ID Proof', submitted: true },
+      { name: 'Experience Certificate', submitted: true },
+      { name: 'Other Documents', submitted: false },
+    ],
+  },
+  {
+    id: 2,
+    name: 'Dr. Kavita Rao',
+    subject: 'Biology',
+    experience: '9 years',
+    contact: '+91 97222 33445',
+    status: 'Active',
+    documents: [
+      { name: 'Qualification Certificate', submitted: true },
+      { name: 'ID Proof', submitted: true },
+      { name: 'Experience Certificate', submitted: false },
+      { name: 'Other Documents', submitted: false },
+    ],
+  },
+  {
+    id: 3,
+    name: 'Mr. Sanjay Bhatt',
+    subject: 'Mathematics',
+    experience: '15 years',
+    contact: '+91 96333 44556',
+    status: 'Inactive',
+    documents: [
+      { name: 'Qualification Certificate', submitted: true },
+      { name: 'ID Proof', submitted: false },
+      { name: 'Experience Certificate', submitted: false },
+      { name: 'Other Documents', submitted: false },
+    ],
+  },
+  {
+    id: 4,
+    name: 'Ms. Anjali Desai',
+    subject: 'Chemistry',
+    experience: '6 years',
+    contact: '+91 95444 55667',
+    status: 'Active',
+    documents: [
+      { name: 'Qualification Certificate', submitted: true },
+      { name: 'ID Proof', submitted: true },
+      { name: 'Experience Certificate', submitted: true },
+      { name: 'Other Documents', submitted: true },
+    ],
+  },
+]

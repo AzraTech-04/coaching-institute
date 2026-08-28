@@ -1,0 +1,73 @@
+export const leads = [
+  {
+    id: 1,
+    name: "Vikram Malhotra",
+    contact: "+91 98765 11223",
+    course: "JEE Advanced",
+    source: "Website",
+    status: "New",
+    followUpDate: "2026-08-24",
+    notes: "Interested in morning batch. Asked about fee structure.",
+  },
+  {
+    id: 2,
+    name: "Neha Kapoor",
+    contact: "+91 97654 22334",
+    course: "NEET",
+    source: "Referral",
+    status: "Contacted",
+    followUpDate: "2026-08-23",
+    notes: "Referred by an existing student. Wants a demo class.",
+  },
+  {
+    id: 3,
+    name: "Rahul Joshi",
+    contact: "+91 96543 33445",
+    course: "Foundation - Class 10",
+    source: "Walk-in",
+    status: "Follow-up",
+    followUpDate: "2026-08-22",
+    notes: "Visited campus. Comparing with another institute.",
+  },
+  {
+    id: 4,
+    name: "Isha Bansal",
+    contact: "+91 95432 44556",
+    course: "NEET",
+    source: "Instagram Ad",
+    status: "Converted",
+    followUpDate: "2026-08-10",
+    notes: "Admission completed. Assigned to NEET Batch A.",
+  },
+  {
+    id: 5,
+    name: "Yash Trivedi",
+    contact: "+91 94321 55667",
+    course: "JEE Advanced",
+    source: "Website",
+    status: "Lost",
+    followUpDate: "2026-08-05",
+    notes: "Chose a different institute closer to home.",
+  },
+  {
+    id: 6,
+    name: "Simran Kaur",
+    contact: "+91 93210 66778",
+    course: "Foundation - Class 10",
+    source: "Referral",
+    status: "New",
+    followUpDate: "2026-08-25",
+    notes: "Parent inquired on behalf of student.",
+  },
+];
+
+export const courseOptions = ["JEE Advanced", "NEET", "Foundation - Class 10"];
+export const sourceOptions = ["Website", "Referral", "Walk-in", "Instagram Ad"];
+export const leadStatusOptions = [
+  "New",
+  "Contacted",
+  "Follow-up",
+  "Counselling",
+  "Converted",
+  "Lost",
+];

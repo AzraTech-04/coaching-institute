@@ -72,34 +72,36 @@ function SmsEmail() {
         ) : filtered.length === 0 ? (
           <EmptyState title="No matching messages" message="Try adjusting your search or filters." />
         ) : (
-          <table className="w-full text-sm text-left">
-            <thead className="bg-neutral-50 text-neutral-500 uppercase text-xs">
-              <tr>
-                <th className="px-5 py-3">Title</th>
-                <th className="px-5 py-3">Channel</th>
-                <th className="px-5 py-3">Audience</th>
-                <th className="px-5 py-3">Recipients</th>
-                <th className="px-5 py-3">Date</th>
-                <th className="px-5 py-3">Status</th>
-                <th className="px-5 py-3"></th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-neutral-100">
-              {filtered.map((m) => (
-                <tr key={m.id} className="hover:bg-neutral-50 cursor-pointer" onClick={() => setSelectedMessage(m)}>
-                  <td className="px-5 py-3 font-medium text-neutral-800">{m.title}</td>
-                  <td className="px-5 py-3 text-neutral-600">{m.channel}</td>
-                  <td className="px-5 py-3 text-neutral-600">{m.audience.label}</td>
-                  <td className="px-5 py-3 text-neutral-600">{m.audience.count}</td>
-                  <td className="px-5 py-3 text-neutral-600">{m.date}</td>
-                  <td className="px-5 py-3"><StatusBadge status={m.status} /></td>
-                  <td className="px-5 py-3 text-right">
-                    <button type="button" onClick={(e) => { e.stopPropagation(); setSelectedMessage(m) }} className="text-brand-600 hover:text-brand-700 font-medium text-sm">View</button>
-                  </td>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[640px] text-sm text-left">
+              <thead className="bg-neutral-50 text-neutral-500 uppercase text-xs">
+                <tr>
+                  <th className="px-5 py-3">Title</th>
+                  <th className="px-5 py-3">Channel</th>
+                  <th className="px-5 py-3">Audience</th>
+                  <th className="px-5 py-3">Recipients</th>
+                  <th className="px-5 py-3">Date</th>
+                  <th className="px-5 py-3">Status</th>
+                  <th className="px-5 py-3"></th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-neutral-100">
+                {filtered.map((m) => (
+                  <tr key={m.id} className="hover:bg-neutral-50 cursor-pointer" onClick={() => setSelectedMessage(m)}>
+                    <td className="px-5 py-3 font-medium text-neutral-800">{m.title}</td>
+                    <td className="px-5 py-3 text-neutral-600">{m.channel}</td>
+                    <td className="px-5 py-3 text-neutral-600">{m.audience.label}</td>
+                    <td className="px-5 py-3 text-neutral-600">{m.audience.count}</td>
+                    <td className="px-5 py-3 text-neutral-600">{m.date}</td>
+                    <td className="px-5 py-3"><StatusBadge status={m.status} /></td>
+                    <td className="px-5 py-3 text-right">
+                      <button type="button" onClick={(e) => { e.stopPropagation(); setSelectedMessage(m) }} className="text-brand-600 hover:text-brand-700 font-medium text-sm">View</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
 

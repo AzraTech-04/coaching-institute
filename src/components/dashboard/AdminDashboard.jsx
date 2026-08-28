@@ -155,21 +155,23 @@ function AdminDashboard({ adminId }) {
           <div className="px-5 py-4 border-b border-neutral-100">
             <h3 className="text-base font-semibold text-neutral-800">Batch Overview</h3>
           </div>
-          <table className="w-full text-sm text-left">
-            <thead className="bg-neutral-50 text-neutral-500 uppercase text-xs">
-              <tr><th className="px-5 py-2.5">Batch</th><th className="px-5 py-2.5">Students</th><th className="px-5 py-2.5">Faculty</th><th className="px-5 py-2.5">Status</th></tr>
-            </thead>
-            <tbody className="divide-y divide-neutral-100">
-              {batches.map((b) => (
-                <tr key={b.id}>
-                  <td className="px-5 py-2.5 font-medium text-neutral-800">{b.name}</td>
-                  <td className="px-5 py-2.5 text-neutral-600">{b.students}</td>
-                  <td className="px-5 py-2.5 text-neutral-600">{b.facultyName}</td>
-                  <td className="px-5 py-2.5"><StatusBadge status={b.status} /></td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[420px] text-sm text-left">
+              <thead className="bg-neutral-50 text-neutral-500 uppercase text-xs">
+                <tr><th className="px-5 py-2.5">Batch</th><th className="px-5 py-2.5">Students</th><th className="px-5 py-2.5">Faculty</th><th className="px-5 py-2.5">Status</th></tr>
+              </thead>
+              <tbody className="divide-y divide-neutral-100">
+                {batches.map((b) => (
+                  <tr key={b.id}>
+                    <td className="px-5 py-2.5 font-medium text-neutral-800">{b.name}</td>
+                    <td className="px-5 py-2.5 text-neutral-600">{b.students}</td>
+                    <td className="px-5 py-2.5 text-neutral-600">{b.facultyName}</td>
+                    <td className="px-5 py-2.5"><StatusBadge status={b.status} /></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 

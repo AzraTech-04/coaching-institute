@@ -21,9 +21,112 @@
   --color-neutral-900: #1c1917;
 
   /* Typography */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
+  margin: 0;
+  min-width: 320px;
+  max-width: 100vw;
+  overflow-x: hidden;
   font-family: var(--font-sans);
+  overscroll-behavior-x: contain;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  max-width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+main,
+section,
+article,
+div,
+form,
+nav,
+aside,
+header,
+footer,
+table,
+thead,
+tbody,
+tr,
+th,
+td {
+  max-width: 100%;
+}
+
+/* Shared table scroll behavior for all modules and roles */
+div:has(> table),
+.overflow-x-auto,
+.table-scroll {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  touch-action: pan-x;
+}
+
+div:has(> table) > table,
+.overflow-x-auto > table,
+.table-scroll > table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: auto;
+}
+
+@media (max-width: 640px) {
+  div:has(> table) > table,
+  .overflow-x-auto > table,
+  .table-scroll > table {
+    min-width: 720px;
+  }
+}
+
+/* Keep long content readable without causing layout blowouts */
+td,
+th {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+@media (max-width: 640px) {
+  .page-actions,
+  .page-header-actions {
+    width: 100%;
+    align-self: stretch;
+  }
 }

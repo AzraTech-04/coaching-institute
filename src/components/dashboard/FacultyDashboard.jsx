@@ -90,28 +90,30 @@ function FacultyDashboard({ facultyId }) {
           <h3 className="text-base font-semibold text-neutral-800">My Batches</h3>
         </div>
         {myBatches.length > 0 ? (
-          <table className="w-full text-sm text-left">
-            <thead className="bg-neutral-50 text-neutral-500 uppercase text-xs">
-              <tr>
-                <th className="px-5 py-3">Batch</th>
-                <th className="px-5 py-3">Course</th>
-                <th className="px-5 py-3">Students</th>
-                <th className="px-5 py-3">Timing</th>
-                <th className="px-5 py-3">Status</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-neutral-100">
-              {myBatches.map((b) => (
-                <tr key={b.id}>
-                  <td className="px-5 py-3 font-medium text-neutral-800">{b.name}</td>
-                  <td className="px-5 py-3 text-neutral-600">{b.course}</td>
-                  <td className="px-5 py-3 text-neutral-600">{b.students} / {b.capacity}</td>
-                  <td className="px-5 py-3 text-neutral-600">{b.timing}</td>
-                  <td className="px-5 py-3"><StatusBadge status={b.status} /></td>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[420px] text-sm text-left">
+              <thead className="bg-neutral-50 text-neutral-500 uppercase text-xs">
+                <tr>
+                  <th className="px-5 py-3">Batch</th>
+                  <th className="px-5 py-3">Course</th>
+                  <th className="px-5 py-3">Students</th>
+                  <th className="px-5 py-3">Timing</th>
+                  <th className="px-5 py-3">Status</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-neutral-100">
+                {myBatches.map((b) => (
+                  <tr key={b.id}>
+                    <td className="px-5 py-3 font-medium text-neutral-800">{b.name}</td>
+                    <td className="px-5 py-3 text-neutral-600">{b.course}</td>
+                    <td className="px-5 py-3 text-neutral-600">{b.students} / {b.capacity}</td>
+                    <td className="px-5 py-3 text-neutral-600">{b.timing}</td>
+                    <td className="px-5 py-3"><StatusBadge status={b.status} /></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         ) : (
           <div className="px-5 py-8 text-center text-sm text-neutral-400">
             No batches are currently assigned to you.

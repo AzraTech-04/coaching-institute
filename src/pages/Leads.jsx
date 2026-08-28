@@ -188,51 +188,53 @@ function Leads() {
             message="Try adjusting your search or filters to find what you're looking for."
           />
         ) : (
-          <table className="w-full text-sm text-left">
-            <thead className="bg-neutral-50 text-neutral-500 uppercase text-xs">
-              <tr>
-                <th className="px-5 py-3">Name</th>
-                <th className="px-5 py-3">Course</th>
-                <th className="px-5 py-3">Source</th>
-                <th className="px-5 py-3">Follow-up</th>
-                <th className="px-5 py-3">Status</th>
-                <th className="px-5 py-3"></th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-neutral-100">
-              {filteredLeads.map((lead) => (
-                <tr
-                  key={lead.id}
-                  className="hover:bg-neutral-50 cursor-pointer"
-                  onClick={() => setSelectedLead(lead)}
-                >
-                  <td className="px-5 py-3 font-medium text-neutral-800">
-                    {lead.name}
-                  </td>
-                  <td className="px-5 py-3 text-neutral-600">{lead.course}</td>
-                  <td className="px-5 py-3 text-neutral-600">{lead.source}</td>
-                  <td className="px-5 py-3 text-neutral-600">
-                    {lead.followUpDate}
-                  </td>
-                  <td className="px-5 py-3">
-                    <StatusBadge status={lead.status} />
-                  </td>
-                  <td className="px-5 py-3 text-right">
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setSelectedLead(lead);
-                      }}
-                      className="text-brand-600 hover:text-brand-700 font-medium text-sm"
-                    >
-                      View
-                    </button>
-                  </td>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[560px] text-sm text-left">
+              <thead className="bg-neutral-50 text-neutral-500 uppercase text-xs">
+                <tr>
+                  <th className="px-5 py-3">Name</th>
+                  <th className="px-5 py-3">Course</th>
+                  <th className="px-5 py-3">Source</th>
+                  <th className="px-5 py-3">Follow-up</th>
+                  <th className="px-5 py-3">Status</th>
+                  <th className="px-5 py-3"></th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-neutral-100">
+                {filteredLeads.map((lead) => (
+                  <tr
+                    key={lead.id}
+                    className="hover:bg-neutral-50 cursor-pointer"
+                    onClick={() => setSelectedLead(lead)}
+                  >
+                    <td className="px-5 py-3 font-medium text-neutral-800">
+                      {lead.name}
+                    </td>
+                    <td className="px-5 py-3 text-neutral-600">{lead.course}</td>
+                    <td className="px-5 py-3 text-neutral-600">{lead.source}</td>
+                    <td className="px-5 py-3 text-neutral-600">
+                      {lead.followUpDate}
+                    </td>
+                    <td className="px-5 py-3">
+                      <StatusBadge status={lead.status} />
+                    </td>
+                    <td className="px-5 py-3 text-right">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedLead(lead);
+                        }}
+                        className="text-brand-600 hover:text-brand-700 font-medium text-sm"
+                      >
+                        View
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
 

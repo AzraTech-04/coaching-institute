@@ -474,7 +474,7 @@ function Analytics() {
               subtitle="Latest assessments with available academic performance results."
             >
               <div className="overflow-x-auto">
-                <table className="w-full text-sm text-left">
+                <table className="w-full min-w-[520px] text-sm text-left">
                   <thead className="bg-neutral-50 text-neutral-500 uppercase text-xs">
                     <tr>
                       <th className="px-5 py-3">Test</th>

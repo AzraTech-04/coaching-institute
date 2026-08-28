@@ -150,51 +150,53 @@ function UsersRoles() {
             message="Try adjusting your search or filters."
           />
         ) : (
-          <table className="w-full text-sm text-left">
-            <thead className="bg-neutral-50 text-neutral-500 uppercase text-xs">
-              <tr>
-                <th className="px-5 py-3">Name</th>
-                <th className="px-5 py-3">Email</th>
-                <th className="px-5 py-3">Role</th>
-                <th className="px-5 py-3">Branch</th>
-                <th className="px-5 py-3">Status</th>
-                <th className="px-5 py-3">Last Active</th>
-                <th className="px-5 py-3"></th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-neutral-100">
-              {filtered.map((u) => (
-                <tr
-                  key={u.id}
-                  className="hover:bg-neutral-50 cursor-pointer"
-                  onClick={() => setSelectedUserId(u.id)}
-                >
-                  <td className="px-5 py-3 font-medium text-neutral-800">
-                    {u.name}
-                  </td>
-                  <td className="px-5 py-3 text-neutral-600">{u.email}</td>
-                  <td className="px-5 py-3 text-neutral-600">{u.role}</td>
-                  <td className="px-5 py-3 text-neutral-600">{u.branch}</td>
-                  <td className="px-5 py-3">
-                    <StatusBadge status={u.status} />
-                  </td>
-                  <td className="px-5 py-3 text-neutral-600">{u.lastActive}</td>
-                  <td className="px-5 py-3 text-right">
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setSelectedUserId(u.id);
-                      }}
-                      className="text-brand-600 hover:text-brand-700 font-medium text-sm"
-                    >
-                      View
-                    </button>
-                  </td>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[620px] text-sm text-left">
+              <thead className="bg-neutral-50 text-neutral-500 uppercase text-xs">
+                <tr>
+                  <th className="px-5 py-3">Name</th>
+                  <th className="px-5 py-3">Email</th>
+                  <th className="px-5 py-3">Role</th>
+                  <th className="px-5 py-3">Branch</th>
+                  <th className="px-5 py-3">Status</th>
+                  <th className="px-5 py-3">Last Active</th>
+                  <th className="px-5 py-3"></th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-neutral-100">
+                {filtered.map((u) => (
+                  <tr
+                    key={u.id}
+                    className="hover:bg-neutral-50 cursor-pointer"
+                    onClick={() => setSelectedUserId(u.id)}
+                  >
+                    <td className="px-5 py-3 font-medium text-neutral-800">
+                      {u.name}
+                    </td>
+                    <td className="px-5 py-3 text-neutral-600">{u.email}</td>
+                    <td className="px-5 py-3 text-neutral-600">{u.role}</td>
+                    <td className="px-5 py-3 text-neutral-600">{u.branch}</td>
+                    <td className="px-5 py-3">
+                      <StatusBadge status={u.status} />
+                    </td>
+                    <td className="px-5 py-3 text-neutral-600">{u.lastActive}</td>
+                    <td className="px-5 py-3 text-right">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedUserId(u.id);
+                        }}
+                        className="text-brand-600 hover:text-brand-700 font-medium text-sm"
+                      >
+                        View
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
 

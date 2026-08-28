@@ -195,67 +195,69 @@ function FeesPayments() {
             message="Try adjusting your search or filters."
           />
         ) : (
-          <table className="w-full text-sm text-left">
-            <thead className="bg-neutral-50 text-neutral-500 uppercase text-xs">
-              <tr>
-                <th className="px-5 py-3">Student</th>
-                <th className="px-5 py-3">Batch</th>
-                <th className="px-5 py-3">Total Fee</th>
-                <th className="px-5 py-3">Paid</th>
-                <th className="px-5 py-3">Remaining</th>
-                <th className="px-5 py-3">Status</th>
-                <th className="px-5 py-3"></th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-neutral-100">
-              {filteredRecords.map((r) => (
-                <tr
-                  key={r.id}
-                  className="hover:bg-neutral-50 cursor-pointer"
-                  onClick={() => setSelectedRecordId(r.id)}
-                >
-                  <td className="px-5 py-3 font-medium text-neutral-800">
-                    {r.student.name}
-                  </td>
-                  <td className="px-5 py-3 text-neutral-600">
-                    {r.student.batch}
-                  </td>
-                  <td className="px-5 py-3 text-neutral-600">
-                    ₹{r.totalFee.toLocaleString("en-IN")}
-                  </td>
-                  <td className="px-5 py-3 text-neutral-600">
-                    ₹{r.paidAmount.toLocaleString("en-IN")}
-                  </td>
-                  <td className="px-5 py-3">
-                    <span
-                      className={
-                        r.remaining > 0
-                          ? "text-red-600 font-medium"
-                          : "text-green-600 font-medium"
-                      }
-                    >
-                      ₹{r.remaining.toLocaleString("en-IN")}
-                    </span>
-                  </td>
-                  <td className="px-5 py-3">
-                    <StatusBadge status={r.status} />
-                  </td>
-                  <td className="px-5 py-3 text-right">
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setSelectedRecordId(r.id);
-                      }}
-                      className="text-brand-600 hover:text-brand-700 font-medium text-sm"
-                    >
-                      View
-                    </button>
-                  </td>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[620px] text-sm text-left">
+              <thead className="bg-neutral-50 text-neutral-500 uppercase text-xs">
+                <tr>
+                  <th className="px-5 py-3">Student</th>
+                  <th className="px-5 py-3">Batch</th>
+                  <th className="px-5 py-3">Total Fee</th>
+                  <th className="px-5 py-3">Paid</th>
+                  <th className="px-5 py-3">Remaining</th>
+                  <th className="px-5 py-3">Status</th>
+                  <th className="px-5 py-3"></th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-neutral-100">
+                {filteredRecords.map((r) => (
+                  <tr
+                    key={r.id}
+                    className="hover:bg-neutral-50 cursor-pointer"
+                    onClick={() => setSelectedRecordId(r.id)}
+                  >
+                    <td className="px-5 py-3 font-medium text-neutral-800">
+                      {r.student.name}
+                    </td>
+                    <td className="px-5 py-3 text-neutral-600">
+                      {r.student.batch}
+                    </td>
+                    <td className="px-5 py-3 text-neutral-600">
+                      ₹{r.totalFee.toLocaleString("en-IN")}
+                    </td>
+                    <td className="px-5 py-3 text-neutral-600">
+                      ₹{r.paidAmount.toLocaleString("en-IN")}
+                    </td>
+                    <td className="px-5 py-3">
+                      <span
+                        className={
+                          r.remaining > 0
+                            ? "text-red-600 font-medium"
+                            : "text-green-600 font-medium"
+                        }
+                      >
+                        ₹{r.remaining.toLocaleString("en-IN")}
+                      </span>
+                    </td>
+                    <td className="px-5 py-3">
+                      <StatusBadge status={r.status} />
+                    </td>
+                    <td className="px-5 py-3 text-right">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedRecordId(r.id);
+                        }}
+                        className="text-brand-600 hover:text-brand-700 font-medium text-sm"
+                      >
+                        View
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
 

@@ -96,45 +96,47 @@ function Students() {
             message="Try adjusting your search or filters to find what you're looking for."
           />
         ) : (
-          <table className="w-full text-sm text-left">
-            <thead className="bg-neutral-50 text-neutral-500 uppercase text-xs">
-              <tr>
-                <th className="px-5 py-3">Name</th>
-                <th className="px-5 py-3">Batch</th>
-                <th className="px-5 py-3">Contact</th>
-                <th className="px-5 py-3">Status</th>
-                <th className="px-5 py-3"></th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-neutral-100">
-              {filteredStudents.map((student) => (
-                <tr
-                  key={student.id}
-                  className="hover:bg-neutral-50 cursor-pointer"
-                  onClick={() => setSelectedStudent(student)}
-                >
-                  <td className="px-5 py-3 font-medium text-neutral-800">{student.name}</td>
-                  <td className="px-5 py-3 text-neutral-600">{student.batch}</td>
-                  <td className="px-5 py-3 text-neutral-600">{student.contact}</td>
-                  <td className="px-5 py-3">
-                    <StatusBadge status={student.status} />
-                  </td>
-                  <td className="px-5 py-3 text-right">
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        setSelectedStudent(student)
-                      }}
-                      className="text-brand-600 hover:text-brand-700 font-medium text-sm"
-                    >
-                      View
-                    </button>
-                  </td>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[520px] text-sm text-left">
+              <thead className="bg-neutral-50 text-neutral-500 uppercase text-xs">
+                <tr>
+                  <th className="px-5 py-3">Name</th>
+                  <th className="px-5 py-3">Batch</th>
+                  <th className="px-5 py-3">Contact</th>
+                  <th className="px-5 py-3">Status</th>
+                  <th className="px-5 py-3"></th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-neutral-100">
+                {filteredStudents.map((student) => (
+                  <tr
+                    key={student.id}
+                    className="hover:bg-neutral-50 cursor-pointer"
+                    onClick={() => setSelectedStudent(student)}
+                  >
+                    <td className="px-5 py-3 font-medium text-neutral-800">{student.name}</td>
+                    <td className="px-5 py-3 text-neutral-600">{student.batch}</td>
+                    <td className="px-5 py-3 text-neutral-600">{student.contact}</td>
+                    <td className="px-5 py-3">
+                      <StatusBadge status={student.status} />
+                    </td>
+                    <td className="px-5 py-3 text-right">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          setSelectedStudent(student)
+                        }}
+                        className="text-brand-600 hover:text-brand-700 font-medium text-sm"
+                      >
+                        View
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
 

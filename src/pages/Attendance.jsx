@@ -149,54 +149,56 @@ function Attendance() {
             message="Try adjusting your search or filters to find what you're looking for."
           />
         ) : (
-          <table className="w-full text-sm text-left">
-            <thead className="bg-neutral-50 text-neutral-500 uppercase text-xs">
-              <tr>
-                <th className="px-5 py-3">Student</th>
-                <th className="px-5 py-3">Batch</th>
-                <th className="px-5 py-3">Faculty</th>
-                <th className="px-5 py-3">Date</th>
-                <th className="px-5 py-3">Session</th>
-                <th className="px-5 py-3">Status</th>
-                <th className="px-5 py-3">Attendance %</th>
-                <th className="px-5 py-3"></th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-neutral-100">
-              {filteredRecords.map((record) => {
-                const rowStats = computeStudentStats(record.studentId, records)
-                return (
-                  <tr
-                    key={record.id}
-                    className="hover:bg-neutral-50 cursor-pointer"
-                    onClick={() => setSelectedStudentId(record.studentId)}
-                  >
-                    <td className="px-5 py-3 font-medium text-neutral-800">{record.studentName}</td>
-                    <td className="px-5 py-3 text-neutral-600">{record.batchName}</td>
-                    <td className="px-5 py-3 text-neutral-600">{record.facultyName}</td>
-                    <td className="px-5 py-3 text-neutral-600">{record.date}</td>
-                    <td className="px-5 py-3 text-neutral-600">{record.session}</td>
-                    <td className="px-5 py-3"><StatusBadge status={record.status} /></td>
-                    <td className="px-5 py-3">
-                      <span className={`font-medium ${rowStats.tier.text}`}>{rowStats.percentage}%</span>
-                    </td>
-                    <td className="px-5 py-3 text-right">
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          setSelectedStudentId(record.studentId)
-                        }}
-                        className="text-brand-600 hover:text-brand-700 font-medium text-sm"
-                      >
-                        View
-                      </button>
-                    </td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[720px] text-sm text-left">
+              <thead className="bg-neutral-50 text-neutral-500 uppercase text-xs">
+                <tr>
+                  <th className="px-5 py-3">Student</th>
+                  <th className="px-5 py-3">Batch</th>
+                  <th className="px-5 py-3">Faculty</th>
+                  <th className="px-5 py-3">Date</th>
+                  <th className="px-5 py-3">Session</th>
+                  <th className="px-5 py-3">Status</th>
+                  <th className="px-5 py-3">Attendance %</th>
+                  <th className="px-5 py-3"></th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-neutral-100">
+                {filteredRecords.map((record) => {
+                  const rowStats = computeStudentStats(record.studentId, records)
+                  return (
+                    <tr
+                      key={record.id}
+                      className="hover:bg-neutral-50 cursor-pointer"
+                      onClick={() => setSelectedStudentId(record.studentId)}
+                    >
+                      <td className="px-5 py-3 font-medium text-neutral-800">{record.studentName}</td>
+                      <td className="px-5 py-3 text-neutral-600">{record.batchName}</td>
+                      <td className="px-5 py-3 text-neutral-600">{record.facultyName}</td>
+                      <td className="px-5 py-3 text-neutral-600">{record.date}</td>
+                      <td className="px-5 py-3 text-neutral-600">{record.session}</td>
+                      <td className="px-5 py-3"><StatusBadge status={record.status} /></td>
+                      <td className="px-5 py-3">
+                        <span className={`font-medium ${rowStats.tier.text}`}>{rowStats.percentage}%</span>
+                      </td>
+                      <td className="px-5 py-3 text-right">
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setSelectedStudentId(record.studentId)
+                          }}
+                          className="text-brand-600 hover:text-brand-700 font-medium text-sm"
+                        >
+                          View
+                        </button>
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
 
